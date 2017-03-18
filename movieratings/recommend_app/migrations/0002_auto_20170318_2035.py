@@ -68,6 +68,7 @@ class Migration(migrations.Migration):
 
                 r = Ratings(rating=row['rating'], rate_date=row['rate_date'],
                             movie=m, rater=u)
+                r.save()
 
     dependencies = [
         ('recommend_app', '0001_initial'),
