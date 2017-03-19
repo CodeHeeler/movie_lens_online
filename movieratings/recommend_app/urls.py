@@ -3,10 +3,11 @@ from django.conf.urls import url
 from . import views
 
 urlpatterns = [
-    # GET /polls/
+    # GET /recommend_app/ -> top 20
     url(r'^$', views.index, name='index'),
-    # GET /polls/5/
-    url(r'^(?P<question_id>[0-9]+)/$', views.detail, name='detail'),
-    # GET /polls/5/results/
-    url(r'^(?P<question_id>[0-9]+)/results/$', views.results, name='results'),
+    # GET /recommend_app/movie_id/ -> show the movie and its avg_rating
+    url(r'^(?P<movie_id>[0-9]+)/$', views.movie, name='movie'),
+    # # GET /recommend_app/movie_id/rater_id/
+    # # -> show the raters name and rating for movie
+    url(r'^rater/(?P<rater_id>[0-9]+)/$', views.rater, name='rater'),
 ]

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <!-- <title>{{m.title}}</title> -->
+  </head>
+  <body>
+    {% if m %}
+        <h1>{{ m.title }}</h1>
+        <ul style="list-style: none;">
+          <li>Movie Id: {{m.id}}</li>
+          <li>Release Date: {{m.release_date}}</li>
+          <li> Averge Rating: {{avg_rating}}/5 ({{count}} ratings) </li>
+            <ol>
+            {% for rate in all_movie_rating %}
+              <li><a href="/recommend_app/rater/{{rate.rater.id}}/"> {{rate.rater.name}}</a>&emsp;&emsp;, {{rate.rating}}/5</li>
+            {% endfor %}
+          </ol>
+        </ul>
+    {% else %}
+        <p style="color:red">No movie available.</p>
+    {% endif %}
+
+  </body>
+</html>

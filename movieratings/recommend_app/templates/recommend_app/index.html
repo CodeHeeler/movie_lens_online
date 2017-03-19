@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>MovieRatings_app</title>
+  </head>
+  <body>
+    <h1>Movie Recommender</h1>
+    {% if top20 %}
+        <ul style="list-style: none;">
+          <li style="font-size: 20px; color: red">Top 20:</li>
+        {% for movie in top20 %}
+            <li><a href="/recommend_app/{{ movie.id }}/">{{ movie.title }}</a></li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No movies are available.</p>
+    {% endif %}
+  </body>
+</html>
