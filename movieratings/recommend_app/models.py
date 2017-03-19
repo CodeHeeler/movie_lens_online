@@ -26,7 +26,6 @@ class Movies(models.Model):
         return self.__repr__()
 
 
-
 class Ratings(models.Model):
     movie = models.ForeignKey(Movies, on_delete=models.CASCADE)
     rater = models.ForeignKey(Rater, on_delete=models.CASCADE)
@@ -38,7 +37,6 @@ class Ratings(models.Model):
 
     def __str__(self):
         return self.__repr__()
-
 
 
 class Genre(models.Model):
