@@ -7,13 +7,26 @@
   <body>
     {% if m %}
         <h1>{{ m.title }}</h1>
+        <!-- {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+        <form action="{% url 'recommend_app:vote' m.id %}" method="post">
+        {% csrf_token %}
+        {% for rating in m.ratings_set.all %}
+            <input type="radio" name="rating" id="choice{{ forloop.counter }}" value="{{ choice.id }}" />
+            <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br />
+        {% endfor %}
+        <input type="submit" value="Vote" />
+        </form> -->
+
+
+
         <ul style="list-style: none;">
           <li>Movie Id: {{m.id}}</li>
           <li>Release Date: {{m.release_date}}</li>
           <li> Averge Rating: {{avg_rating}}/5 ({{count}} ratings) </li>
             <ol>
             {% for rate in all_movie_rating %}
-              <li><a href="/recommend_app/rater/{{rate.rater.id}}/"> {{rate.rater.name}}</a>&emsp;&emsp;, {{rate.rating}}/5</li>
+              <li><a href="{% url 'rater' rate.rater.id %}"> {{rate.rater.name}}</a>&emsp;&emsp;, {{rate.rating}}/5</li>
             {% endfor %}
           </ol>
         </ul>

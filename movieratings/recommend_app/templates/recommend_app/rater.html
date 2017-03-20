@@ -9,10 +9,18 @@
     <h1>{{ u.name }}</h1>
     <p>Age: {{u.age}}</p>
     <p>Movies reviewed: {{movies_reviewed}}</p>
+
+    <h2>{{ user.get_full_name }}</h2>
+    <ul>
+      <li>Username: {{ user.username }}</li>
+      <li>Age: {{ user.rater.age }}</li>
+      <li>Movies Rated {{ movies_reviewed }}</li>
+    </ul>
+
     <h4>Movie list</h4>
       <ol>
         {%for movie in top10%}
-        <li>&emsp;{{movie.rating}}/5 - <a href="/recommend_app/{{ movie.movie.id }}/">{{ movie.movie.title }}</a></li>
+        <li>&emsp;{{movie.rating}}/5 - <a href="{% url 'movie' movie.movie.id %}">{{ movie.movie.title }}</a></li>
         {%endfor%}
       </ol>
     {% else %}
